@@ -5,7 +5,15 @@ const db = require('./db');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
 const JWT_EXPIRES_IN = '7d';
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_EMAIL_LEN = 254;
+// Simple structural check: exactly one '@', non-empty local part with no
+// whitespace, domain has a dot and a TLD-like suffix. Written without nested
+// repetition on the same character class to avoid catastrophic-backtracking
+// (polynomial ReDoS) on adversarial inputs.
+const EMAIL_RE = /^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/;
+function isValidEmail(s) {
+  return typeof s === 'string' && s.length <= MAX_EMAIL_LEN && EMAIL_RE.test(s);
+}
 
 function safeJson(s) {
   try { return JSON.parse(s || '{}'); } catch { return {}; }
@@ -28,7 +36,7 @@ function signToken(user) {
 
 async function register(req, res) {
   const { email, password, name } = req.body || {};
-  if (!email || !EMAIL_RE.test(email)) return res.status(400).json({ error: 'Valid email required' });
+  if (!isValidEmail(email)) return res.status(400).json({ error: 'Valid email required' });
   if (!password || password.length < 6) return res.status(400).json({ error: 'Password must be at least 6 chars' });
 
   const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(email);

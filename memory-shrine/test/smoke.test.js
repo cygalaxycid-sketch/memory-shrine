@@ -8,6 +8,7 @@ const assert = require('assert');
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tm-test-'));
 process.env.DB_PATH = path.join(tmp, 'test.db');
 process.env.JWT_SECRET = 'test-secret';
+process.env.DISABLE_RATE_LIMIT = '1';
 delete process.env.OPENAI_API_KEY; // force rule-based validator
 
 const app = require('../src/server');
