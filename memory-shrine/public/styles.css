@@ -1,0 +1,40 @@
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #f5f7fa; color: #222; }
+header { background: #2c3e50; color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; font-size: 18px; }
+header nav button { background: transparent; color: white; border: 1px solid #ffffff44; padding: 6px 12px; margin-left: 6px; border-radius: 4px; cursor: pointer; }
+header nav button:hover { background: #ffffff22; }
+main { max-width: 980px; margin: 24px auto; padding: 0 16px; }
+.card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+h2 { margin-top: 0; }
+label { display: block; margin: 10px 0 4px; font-size: 14px; color: #555; }
+input, textarea, select { width: 100%; padding: 8px 10px; border: 1px solid #cfd6dd; border-radius: 4px; font-size: 14px; font-family: inherit; }
+textarea { min-height: 70px; resize: vertical; }
+button.primary { background: #2980b9; color: white; border: none; padding: 9px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+button.primary:hover { background: #21618c; }
+button.secondary { background: #ecf0f1; color: #333; border: 1px solid #cfd6dd; padding: 7px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+button.secondary:hover { background: #dde4e7; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.row > * { flex: 1; min-width: 150px; }
+.task { border: 1px solid #e0e6ea; border-radius: 6px; padding: 12px; margin-bottom: 10px; }
+.task h3 { margin: 0 0 6px; font-size: 16px; }
+.meta { font-size: 12px; color: #777; margin-bottom: 8px; }
+.part { background: #f9fbfc; border-left: 3px solid #2980b9; padding: 8px 12px; margin: 6px 0; border-radius: 3px; }
+.part .status { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; margin-left: 8px; }
+.status.open { background: #d5f5e3; color: #1e8449; }
+.status.claimed { background: #fdebd0; color: #b9770e; }
+.status.submitted { background: #d6eaf8; color: #1f618d; }
+.status.validated { background: #abebc6; color: #145a32; }
+.status.rejected { background: #f5b7b1; color: #922b21; }
+.status.in_progress { background: #fdebd0; color: #b9770e; }
+.status.completed { background: #abebc6; color: #145a32; }
+.error { color: #c0392b; margin: 8px 0; font-size: 13px; }
+.success { color: #1e8449; margin: 8px 0; font-size: 13px; }
+.hidden { display: none !important; }
+.tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 2px solid #e0e6ea; }
+.tabs button { background: none; border: none; padding: 10px 16px; cursor: pointer; font-size: 14px; color: #555; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.tabs button.active { color: #2980b9; border-bottom-color: #2980b9; font-weight: 600; }
+.tag { display: inline-block; background: #ecf0f1; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 4px; }
+.balance { font-size: 24px; font-weight: 600; color: #2980b9; }
+.amount { color: #27ae60; font-weight: 600; }
+small.muted { color: #888; }

@@ -1,0 +1,17 @@
+{
+  "name": "task-marketplace",
+  "version": "0.1.0",
+  "description": "Task marketplace MVP with virtual wallet, splittable tasks, and AI-driven completion validation.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node test/smoke.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.5.1",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
